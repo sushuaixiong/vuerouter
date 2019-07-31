@@ -11,6 +11,14 @@ export default {
     return {
       msg: 'Hi,I am hi1'
     }
+  },
+  beforeRouteEnter (to, from, next) {
+    console.log('进入路由')
+    next()
+  },
+  beforeRouteLeave (to, from, next) {
+    console.log('离开路由')
+    next()
   }
 }
 </script>

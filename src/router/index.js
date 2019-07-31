@@ -5,6 +5,7 @@ import Hi from '@/components/Hi'
 import Hi1 from '@/components/Hi1'
 import Hi2 from '@/components/Hi2'
 import Error from '@/components/Error'
+import Vuex from '@/components/vuexInstance'
 
 Vue.use(Router)
 
@@ -37,7 +38,12 @@ export default new Router({
         {
           path: 'Hi2',
           name: 'Hi2',
-          component: Hi2
+          component: Hi2,
+          beforeEnter: (to, from, next) => {
+            console.log(to)
+            console.log(from)
+            next()
+          }
         }
       ]
     },
@@ -45,6 +51,10 @@ export default new Router({
       path: '/gohome/:username',
       name: 'gohome',
       redirect: '/Hi/Hi1/:username'
+    },
+    {
+      path: '/vuex',
+      component: Vuex
     },
     {
       path: '*',

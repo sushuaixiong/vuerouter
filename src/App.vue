@@ -2,6 +2,11 @@
   <div id="app">
     <img src="./assets/logo.png">
     <div>
+      <button @click="goBack">前进</button>
+      <button @click="goForwoad">后退</button>
+      <button @click="goHome">回到首页</button>
+    </div>
+    <div>
       <router-link to="/">首页</router-link>
       <router-link to="/hi">Hi页面</router-link>
       <!-- <router-link :to="{name: 'Hi1',params:{username: 'seth'}}">Hi1页面</router-link> -->
@@ -10,6 +15,7 @@
       <router-link to="/gohome/aaa">回到首页</router-link>
       <router-link to="/home1">回到首页1</router-link>
       <router-link to="/1234">错误页面</router-link>
+      <router-link to="/vuex">vuex</router-link>
     </div>
     {{$route.name}}
     <transition name="fade" mode="out-in">
@@ -22,7 +28,18 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  methods: {
+    goBack () {
+      this.$router.go(-1)
+    },
+    goForwoad () {
+      this.$router.go(1)
+    },
+    goHome () {
+      this.$router.push('/')
+    }
+  }
 }
 </script>
 
